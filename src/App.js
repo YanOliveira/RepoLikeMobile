@@ -23,7 +23,11 @@ export default function App() {
     <>
       <StatusBar barStyle="light-content" backgroundColor="#7159c1" />
       <SafeAreaView style={styles.container}>
-        <Repository />
+        <FlatList
+          data={repositories}
+          keyExtractor={(repository) => repository.id}
+          renderItem={({ item }) => <Repository repository={item} />}
+        />
       </SafeAreaView>
     </>
   );
