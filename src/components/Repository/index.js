@@ -1,7 +1,7 @@
 import React from "react";
 import { View, Text, TouchableOpacity, StyleSheet } from "react-native";
 
-export default function Repository({ repository }) {
+export default function Repository({ repository, handleLikeRepository }) {
   return (
     <View style={styles.repositoryContainer}>
       <Text style={styles.repository}>{repository.title}</Text>
@@ -17,7 +17,6 @@ export default function Repository({ repository }) {
       <View style={styles.likesContainer}>
         <Text
           style={styles.likeText}
-          // Remember to replace "1" below with repository ID: {`repository-likes-${repository.id}`}
           testID={`repository-likes-${repository.id}`}
         >
           {repository.likes} curtidas
@@ -26,9 +25,8 @@ export default function Repository({ repository }) {
 
       <TouchableOpacity
         style={styles.button}
-        onPress={() => handleLikeRepository(1)}
-        // Remember to replace "1" below with repository ID: {`like-button-${repository.id}`}
-        testID={`like-button-1`}
+        onPress={handleLikeRepository}
+        testID={`like-button-${repository.id}`}
       >
         <Text style={styles.buttonText}>Curtir</Text>
       </TouchableOpacity>
